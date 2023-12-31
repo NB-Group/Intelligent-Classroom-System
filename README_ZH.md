@@ -2,7 +2,7 @@
 
 文档语言|document language
 
-[中文]|[[英文](README.md)]
+[中文]|[[English](README.md)]
 
 #--------------------------
 
