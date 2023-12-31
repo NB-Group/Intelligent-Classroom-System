@@ -1,52 +1,48 @@
-# 学生课堂行为检测项目
+# Student Classroom Behavior Detection Project
 
-### 文档语言|document language
-中文 |  [英文](README_EN.md)
+文档语言|document language
+[中文](README_ZH.md)|[[英文]]
 
-该项目由梁皓文(github@nb_group)开发、编写。
+This project was developed and written by Haowen Liang (GitHub: @nb_group).
 
-这是一个使用人工智能计算机视觉技术来检测学生在课堂上的行为的项目，可以帮助教师了解学生的学习情况和注意力分布。
+It is a project that utilizes artificial intelligence computer vision technology to detect student behavior in the classroom. It aims to assist teachers in understanding students' learning situations and attention distribution.
 
-## 创作背景
-在我班的教育环境中，学生上课分心，与他人讲话等现象都愈发严重，甚至于无视台上的老师，但是在这样的复杂环境中，老师无法快速准确的定位说话的人，因此，我开发了一个基于人工智能的课堂行为检测系统。该系统旨在通过技术手段帮助老师对学生的学习行为进行分析，为教学效果分析提供更多的数据支持。
-随着科技的不断进步，人工智能已经逐渐渗透到我们生活的各个领域。在计算机的帮助下，我们能够高效，准确的找出扰乱纪律的人并进行惩罚。结合家长签名，写检讨等方法后，该系统预计将大幅提高我班上课效果。
+## Background
+In our educational environment, issues such as students being distracted in class and talking to others have become increasingly serious. In some cases, students even ignore the teacher at the front of the class. In such a complex environment, teachers find it challenging to quickly and accurately identify the person speaking. To address this, I developed a classroom behavior detection system based on artificial intelligence. The system aims to use technological means to help teachers analyze students' learning behavior and provide more data support for teaching effectiveness analysis. With the continuous advancement of technology, artificial intelligence has gradually infiltrated various aspects of our lives. With the assistance of computers, we can efficiently and accurately identify and address discipline disruptions. After incorporating methods such as parental signatures and writing reflections, this system is expected to significantly improve the effectiveness of our class.
 
+## Technical Overview
 
-## 技术介绍
+This project uses [YOLOV8](https://github.com/ultralytics/ultralytics) for image segmentation, separating each student in the classroom scene. The segmented images are then fed into a custom CNN (Convolutional Neural Network) model designed from scratch by Haowen Liang. The model was trained using a dataset collected and annotated by the author, achieving an impressive accuracy of **99.86%**. Lastly, [face_recognition](https://github.com/ageitgey/face_recognition/) is employed for facial recognition.
 
-该项目使用[YOLOV8](https://github.com/ultralytics/ultralytics)进行图像分割，将课堂场景中的每个学生分割出来，并送入一个自定义的CNN卷积神经网络模型进行行为分类。该模型由梁皓文从零设计，并使用自己收集和标注的数据集进行训练，准确率高达**99.86%**,最后使用[face_recognition](https://github.com/ageitgey/face_recognition/)进行人脸识别。
+The behavior detection model can identify the following student behaviors:
+- Listening
+- Drinking water
+- Distracted
+- Writing
 
-行为检测模型可以识别出学生的以下行为：
-- 听见
-- 喝水
-- 心不在焉
-- 写字
+## User Guide
 
+Although this project is intended for use by our class's teachers, I'll provide a brief tutorial.
 
-## 使用教程
+Using this project is straightforward, involving the following steps:
 
-虽然这个项目是给我们班的老师用的，但是我还是简短写一下教程吧
+1. Clone the project using Git or download the source code directly.
+2. Run: `pip install -r requirements.txt`.
+3. Register for an Ultralytics account, obtain the deployment API key, and fill it into the `config.py` file.
+4. Run `Facial data input.py` and follow the prompts to input facial data.
+5. Run `main.py` for real-time camera detection or `use_vido_recegonition.py` to detect using an existing video.
+6. Wait for the detection results to be displayed on the screen or saved to the specified folder.
 
-使用该项目非常简单，只需以下几步：
+Explanation of directories:
+ - `data`: Training data for pose detection model.
+ - `debug`: Used for personal debugging.
+ - `face_data`: Facial data.
+ - `img`: Not necessary for the program, used for debugging. Do not delete.
+ - `model`: Behavior detection model.
+ - `test_data`: Test data.
 
-1. 使用git克隆该项目或者直接下载源码压缩包
-2. 使用:'''pip install -r requirements.txt'''
-3. 注册ultralytics账号，获取部署用的api key,并填入config.py文件中
-4. 运行Facial data input.py按照提示输入人脸数据
-5. 运行main.py文件使用摄像头实时检测，或者运行use_vido_recegonition.py使用现有视频进行检测
-6. 等待检测结果显示在屏幕上，或者保存到指定的文件夹中。
+This project requires no additional configurations and can run on CPUs. If hardware conditions permit, you can try modifying the code for GPU acceleration, significantly improving speed.
 
-各个目录解释:
- - data:姿态检测模型训练数据
- - debug:我自己debug用的
- - face_data:人脸数据
- - img:本身不需要，我debug用，程序引用了，莫删
- - model:行为检测模型
- - test_data:测试数据
+## Open Source License
 
-该项目无需其他配置，并且可以在CPU上运行，有硬件条件的可以尝试修改代码并使用GPU运行，速度会大幅提高.
-
-## 开源协议
-
-该项目使用[GPL v3.0](https://github.com/KSXGitHub/GPL-3.0/blob/89c928a17db494bb6f4c4013d77f5bee076d057d/LICENSE)
-开源协议，任何人都可以自由地使用、修改和分发该项目，但必须保留原作者的版权信息和协议声明。并且！绝对！禁止！商用！但是想要在自己学校部署的话可以找我
+This project is released under the [GPL v3.0](https://github.com/KSXGitHub/GPL-3.0/blob/89c928a17db494bb6f4c4013d77f5bee076d057d/LICENSE) open-source license. Anyone is free to use, modify, and distribute the project, but they must retain the original author's copyright information and license declaration. Commercial use is strictly prohibited. However, if you want to deploy it at your school, feel free to contact me.
