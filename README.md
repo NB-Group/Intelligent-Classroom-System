@@ -1,7 +1,7 @@
 # 学生课堂行为检测项目
 
 ### 文档语言|document language
-中文 | [英文](README_EN.md)
+中文 |  [英文](README_EN.md)
 
 该项目由梁皓文(github@nb_group)开发、编写。
 
