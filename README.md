@@ -1,3 +1,5 @@
+## This is something I developed when I was around 11 or 12. Its code quality is not guaranteed, and I do not recommend using it in any real-world environment. At the same time, from my current perspective, it was a highly privacy-invasive and unethical act that deserves condemnation. I honestly have no idea what my younger self was thinking.
+
 # Student Classroom Behavior Detection Project
 
 文档语言|document language
